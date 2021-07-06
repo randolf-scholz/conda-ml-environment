@@ -1,31 +1,37 @@
 #!/usr/bin/env bash
 
+if [ "$CONDA_DEFAULT_ENV" != "base" ]; then
+	echo "Script must be executed from base environment!"
+	exit 1
+fi
+
 #########
 # SETUP #
 #########
+
 set -e
-NON_INTERACTIVE=false
-FILE="venv.yaml"
-BLAS="mkl"
-LIBBLAS="mkl"
-PIP_CACHE_DIR="$CONDA_PREFIX/.cache/pip"
 CONDA=conda
+FILE="venv.yaml"
+NON_INTERACTIVE=false
+PIP_CACHE_DIR=""
 
 usage="
 	$(basename "$0") [-c --cache] [-f --file] [-h --help] [-m --mamba] [-y --yes] envname
 	Compile tutorials matching 'tutorial<id>.tex'
 	envname    : name of the environment to initialize
-	-c --cache : make conda PIP use CONDA_PREFIX/.cache/pip as cache dir (default=on)
+	-c --cache : specify PIP cache directory (default: check if ~/.cache/pip exists)
 	-f --file  : path to the environment file (default=env.yaml)
 	-h --help  : print this help
 	-m --mamba : use mamba for installing packages (faster&better dependecy solving)
 	-y --yes   : passes -y flag to all options (default=off)
 	"
+
 print_title () { echo -e "\n\e[32m>>> $1 <<<\e[0m"; }
 print_alert () { echo -e   "\e[31m>>> $1 <<<\e[0m"; }
 print_infos () { echo -e "\e[33m$1\e[0m" ; }
 
 bool_promt () {
+	# If non-interactive, return true, else ask user (y/n)
 	print_title "$1"
 
 	if $NON_INTERACTIVE; then 
@@ -51,20 +57,24 @@ bool_promt () {
 
 for key in "$@"; do
 case $key in
-	-h|--help)
-	echo "$usage" >&2
-	exit
-	;;
-	-y|--non-interactive)
-	NON_INTERACTIVE=true
+	-c|--cache)
+	PIP_CACHE_DIR=$key
 	shift # past argument with no value
 	;;
 	-f|--file)
 	FILE=$key
 	shift # past argument with no value
 	;;
+	-h|--help)
+	echo "$usage" >&2
+	exit
+	;;
 	-m|--mamba)
 	CONDA=mamba
+	shift # past argument with no value
+	;;
+	-y|--non-interactive)
+	NON_INTERACTIVE=true
 	shift # past argument with no value
 	;;
 	-*|--*)
@@ -77,21 +87,24 @@ done
 
 remaining_args=("$@")
 if [ "$remaining_args" == "" ]; then
+	# if no positional was given ask user for environment name
     echo "Enter the enviroment name"
 	read ENVNAME
 else
 	ENVNAME="$remaining_args"
 fi
 
-if [ "$CONDA_DEFAULT_ENV" != "base" ]; then
-	echo "Script must be executed from base environment!"
-	exit 1
-fi
-
 if $NON_INTERACTIVE; then
 	ARGS="-y"
 else
 	ARGS=""
+fi
+
+if [ "$PIP_CACHE_DIR" == "" ]; then
+	if [ -d "$HOME/.cache/pip" ]; then
+		PIP_CACHE_DIR="$HOME/.cache/pip"
+		print_infos "Found existing pip cache directory in $PIP_CACHE_DIR"
+	fi
 fi
 
 ########
@@ -137,6 +150,7 @@ if !(bool_promt "Install TensorFlow 2.5?"); then
 fi
 
 if !(bool_promt "Install CUDA-compatible JAX?"); then
+	# Following installtion instructions from https://github.com/google/jax
 	pip install --cache-dir $PIP_CACHE_DIR --upgrade "jax[cuda111]" -f https://storage.googleapis.com/jax-releases/jax_releases.html
 	pip install --cache-dir $PIP_CACHE_DIR --upgrade flax optax
 fi
@@ -145,8 +159,9 @@ if !(bool_promt "Perform post-install update-check?"); then
 	$CONDA update $ARGS --all
 
 	if [ $CONDA == "mamba" ]; then
-	print_infos "Performing second update run with conda since mamba was used"
-	conda update $ARGS --all
+		print_infos "Performing second update run with conda since mamba was used"
+		print_infos "This makes sure --strict-channel-priority is abdided by"
+		conda update $ARGS --all
 	fi
 fi
 
