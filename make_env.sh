@@ -34,9 +34,10 @@ bool_promt () {
 	# If non-interactive, return true, else ask user (y/n)
 	print_title "$1"
 
-	if $NON_INTERACTIVE; then 
+	if $NON_INTERACTIVE; then
+		sleep 2
 		echo -e "Proceed ([y]/n)? \e[33m>>> YES\e[0m\n"
-		sleep 3
+		sleep 2
 		return 1
 	fi
 
@@ -151,7 +152,12 @@ fi
 
 if !(bool_promt "Install CUDA-compatible JAX?"); then
 	# Following installtion instructions from https://github.com/google/jax
-	pip install --cache-dir $PIP_CACHE_DIR --upgrade "jax[cuda111]" -f https://storage.googleapis.com/jax-releases/jax_releases.html
+	# Force installation of pip-packages for jax and jaxlib (overwrite conda provided jax)
+	pip install --cache-dir $PIP_CACHE_DIR --upgrade "jax[cuda111]" "jaxlib[cuda111]" \
+		--force-reinstall --no-deps -f https://storage.googleapis.com/jax-releases/jax_releases.html
+	# Install any missing dependencies
+	pip install --cache-dir $PIP_CACHE_DIR --upgrade "jax[cuda111]" "jaxlib[cuda111]" \
+		-f https://storage.googleapis.com/jax-releases/jax_releases.html
 	pip install --cache-dir $PIP_CACHE_DIR --upgrade flax optax
 fi
 
