@@ -1,0 +1,60 @@
+tensorflow:
+  - 2.6.0
+  - 2.5.1
+  - 2.5.0
+  - 2.4.3
+
+tensorflow-gpu:
+  - 2.6.0
+  - 2.5.1
+  - 2.5.0
+  - 2.4.3
+
+tensorflow-datasets:
+    - latest
+tensorflow-probability:
+    - latest
+tensorflow-estimator:
+    - latest
+tensorflow-models:
+  - latest
+tensorflow-tensorboard:
+  - latest
+tensorflow-metadata:
+  - latest
+jax:
+  - latest
+jaxlib:
+  - latest
+optax: # Optax is a gradient processing and optimization library for JAX.
+  - latest
+flax: # Flax: A neural network library and ecosystem for JAX designed for flexibility
+  - latest
+objax: # object oriented jax
+  - latest
+elegy: # Elegy is a framework-agnostic Trainer interface for the Jax ecosystem.
+  - latest
+trax: # Trax — Deep Learning with Clear Code and Speed
+  - latest
+chex: # Chex is a library of utilities for helping to write reliable JAX code.
+  - latest
+rlax: # jax-based reinforcement learning
+  - latest
+sonnet: # Sonnet is a library built on top of TensorFlow 2 designed to provide simple, composable abstractions for machine learning research.
+  - latest
+numpyro: # Probabilistic programming with NumPy powered by JAX for autograd and JIT compilation to GPU/TPU/CPU.
+  - latest
+coax: # Plug-n-Play Reinforcement Learning in Python with OpenAI Gym and JAX
+  - latest
+jraph: # Jraph - A library for graph neural networks in jax.
+  - latest
+dm-haiku: # sonnet for jax
+  - latest
+dm-tree: # tree is a library for working with nested data structures.
+  - latest
+dm-control: # DeepMind Infrastructure for Physics-Based Simulation.
+  - latest
+dm-pix: # PIX is an image processing library in JAX, for JAX.
+  - latest
+jmp: # Mixed precision training in JAX
+  - latest

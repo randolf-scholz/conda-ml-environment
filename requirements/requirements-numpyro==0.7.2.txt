@@ -1,0 +1,9 @@
+absl-py==0.13.0
+flatbuffers==2.0
+jax==0.2.20
+jaxlib==0.1.71
+numpy==1.21.2
+opt-einsum==3.3.0
+scipy==1.7.1
+six==1.16.0
+tqdm==4.62.2

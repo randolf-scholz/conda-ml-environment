@@ -15,16 +15,25 @@ dependencies:
   - blas=*=mkl         # Metapackage to select the BLAS variant
   - cudatoolkit=11.1.* # GPU acceleration
 # Pytorch
-  - pytorch>=1.9       # Tensors and Dynamic neural networks in Python with strong GPU acceleration
-  - torchvision        # Datasets, Transforms and Models specific to Computer Vision 
-  - torchaudio         # Data manipulation and transformation for audio signal processing
-  - torchtext          # Data loaders and abstractions for text and NLP
-  - torchdiffeq        # PyTorch Implementation of Differentiable ODE Solvers
-  - pytorch-lightning       # The lightweight PyTorch wrapper for high-performance AI research
-  - pytorch-forecasting     # Time series forecasting with PyTorch
-  - pip: [ torchinfo ] # View model summaries in PyTorch! 
+  - pytorch>=1.9         # Tensors and Dynamic neural networks in Python with strong GPU acceleration
+  - torchvision          # Datasets, Transforms and Models specific to Computer Vision 
+  - torchaudio           # Data manipulation and transformation for audio signal processing
+  - torchtext            # Data loaders and abstractions for text and NLP
+  - torchdiffeq          # PyTorch Implementation of Differentiable ODE Solvers
+  - torchinfo            # View model summaries in PyTorch!
+  - pytorch-lightning    # The lightweight PyTorch wrapper for high-performance AI research
+  - pytorch-forecasting  # Time series forecasting with PyTorch
+# keras
+  - keras                # Deep learning framework
+  - keras-preprocessing  # Dataset preprocessing utilities
+  - keras-applications   # Deep learning models that are made available alongside pre-trained weights.
+# tensorflow ecosystem
+  - tensorflow-probability # Library for probabilistic reasoning and statistical analysis in TensorFlow.
+  - tensorflow-estimator # High-level TensorFlow API that greatly simplifies machine learning programming.
+  - tensorflow-datasets # Public datasets as tf.data.Datasets.
+  - tensorflow-metadata # Standard representations for metadata that are useful when training machine learning models.
 # Scipy Stack
-  - numpy              # The fundamental package for scientific computing with Python
+  - numpy>=1.21        # The fundamental package for scientific computing with Python
   - scipy              # Open-source software for mathematics, science, and engineering
   - matplotlib         # Plotting with Python
   - ipython            # Interactive computing in Python
@@ -57,10 +66,21 @@ dependencies:
   - pillow             # The friendly PIL fork (Python Imaging Library) 
   - pydantic           # Data validation and settings management using Python type hinting.
 ## Machine Learning
+### Jax EcoSystem & DeepMind-Packages
   - jax                # Composable transformations of Python+NumPy programs
+  - jaxlib
   - flax               # Neural network library for JAX that is designed for flexibility
+  - optax
+  - chex
+  - dm-tree
+  - dm-env
+  - dm-haiku
+  - dm-sonnet
+  - numpyro
+  - pip: [ dm-pix, dm-control, objax, jmp, rlax ]
+##
   - statsmodels        # Statsmodels: statistical modeling and econometrics in Python
-  - gym                # A toolkit for developing and comparing reinforcement learning
+  # - gym                # A toolkit for developing and comparing reinforcement learning
   - openml             # Open Machine Learning
 ## Numerics
   - opt_einsum         # Optimizing einsum functions in NumPy, Tensorflow, Dask
@@ -70,6 +90,28 @@ dependencies:
   - plotly             # The interactive graphing library for Python
   - seaborn            # Statistical data visualization in Python
 ## Miscellaneous
+  - ray-core            # Ray provides a simple, universal API for building distributed applications.
+  - ray-tune           # Scalable Hyperparameter Tuning
+  - ray-dashboard      # Ray’s built-in dashboard provides metrics, charts, and other features that help Ray users to understand Ray clusters and libraries.
+  - graphviz             # Simple Python interface for Graphviz
+  # - google-pasta       # pasta is an AST-based Python refactoring library
+  # - absl-py            # Abseil Python Common Libraries, see https://github.com/abseil/abseil-py.
+  # - astunparse         # An AST unparser for Python
+  # - glfw               # A ctypes-based wrapper for GLFW3.
+  # - gast               # Python AST that abstracts the underlying Python version.
+  # - lxml               # Feature-rich and easy-to-use library for processing XML and HTML.
+  # - protobuf           # Protocol Buffers
+  # - bleach             # An easy safelist-based HTML-sanitizing tool.
+  # - werkzeug           # The comprehensive WSGI web application library.
+  # - markdown           # Python implementation of Markdown.
+  # - html5lib           # HTML parser based on the WHATWG HTML specification
+  # - parameterized      # Parameterized testing with any Python test framework
+  # - typing-extensions  # Backported and Experimental Type Hints for Python 3.5+
+  # - termcolor          # ANSII Color formatting for output in terminal.
+  # - tbb                # Intel® oneAPI Threading Building Blocks
+  - flatbuffers        # FlatBuffers is a cross platform serialization library architected for maximum memory efficiency. 
+  - six                # Six is a Python 2 and 3 compatibility library.
+  - aesara             # Aesara is a Python library that allows one to define, optimize, and efficiently evaluate mathematical expressions involving multi-dimensional arrays.
   - tqdm               # A Fast, Extensible Progress Bar for Python and CLI 
   - kaggle             # Official Kaggle API
 ## Linting & Code Quality
@@ -102,7 +144,7 @@ dependencies:
 ## Documentation - Sphinx & Extensions
   - sphinx             # Main repository for the Sphinx documentation builder
   - sphinx-math-dollar # Sphinx extension to let you write LaTeX math using $$
-  - sphinx_rtd_theme   # Sphinx theme for readthedocs.org
+  - sphinx_rtd_theme=0.5.2=pyhd8ed1ab_1   # Sphinx theme for readthedocs.org
   - pip: [ sphinx_autodoc_typehints ]  #Type hints support for the Sphinx autodoc extension
   - numpydoc           # Numpy's Sphinx extensions
   - jupytext           # Jupyter Notebooks as Markdown

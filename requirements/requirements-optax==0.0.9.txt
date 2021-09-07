@@ -1,0 +1,11 @@
+absl-py==0.13.0
+chex==0.0.8
+dm-tree==0.1.6
+flatbuffers==2.0
+jax==0.2.20
+jaxlib==0.1.71
+numpy==1.21.2
+opt-einsum==3.3.0
+scipy==1.7.1
+six==1.16.0
+toolz==0.11.1
