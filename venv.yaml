@@ -6,6 +6,7 @@ dependencies:
   - python>=3.9        # The Python Programming language
   - pip                # The Python package installer 
  # Packaging utilities
+  - conda-build        # commands and tools to use conda to build your own packages.
   - mamba              # The Fast Cross-Platform Package Manager
   - conda-tree         # Conda dependency tree helper
   - pipdeptree         # display dependency tree of the installed Python packages
