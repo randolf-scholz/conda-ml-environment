@@ -144,6 +144,7 @@ dependencies:
   - types-setuptools   # Typing stubs for setuptools
 ## Documentation - Sphinx & Extensions
   - sphinx             # Main repository for the Sphinx documentation builder
+  - sphinx-autoapi     # A new approach to API documentation in Sphinx.
   - sphinx-math-dollar # Sphinx extension to let you write LaTeX math using $$
   - sphinx_rtd_theme=0.5.2=pyhd8ed1ab_1   # Sphinx theme for readthedocs.org
   - pip: [ sphinx_autodoc_typehints ]  #Type hints support for the Sphinx autodoc extension
