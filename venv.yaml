@@ -89,6 +89,7 @@ dependencies:
 ## Plotting                     
   - vispy                       # Interactive scientific visualization in Python
   - plotly                      # The interactive graphing library for Python
+  - pycairo                     # Pycairo is a Python module providing bindings for the cairo graphics library. 
   - seaborn                     # Statistical data visualization in Python
 ## Miscellaneous                
   - ray-core                    # Ray provides a simple, universal API for building distributed applications.
@@ -153,7 +154,7 @@ dependencies:
   - pip:                        
     - sphinx-autoapi            # A new approach to API documentation in Sphinx.
     - sphinx_autodoc_typehints  # Type hints support for the Sphinx autodoc extension
-## web                          
+## Web                          
   - requests                    # A simple, yet elegant HTTP library. 
 ## Serialization                
   - dill                        # Serialize all of python
@@ -168,3 +169,4 @@ dependencies:
 ## Testing - PyTest & Extensions
   - pytest                      # The pytest framework makes it easy to write small tests
   - pytest-cov                  # Coverage plugin for pytest
+  - pytest-rerunfailures        # PyTest plugin to re-run tests to eliminate flaky failures
