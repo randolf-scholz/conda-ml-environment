@@ -46,6 +46,7 @@ dependencies:
   - ipympl                      # Matplotlib Jupyter Integration
   - ipywidgets                  # Interactive HTML Widgets
   - voila                       # Rendering of live Jupyter notebooks with interactive widgets
+  - jupyterlab_templates        # Notebook Templates
 ## NumFocus Projects            
   - arviZ                       # Exploratory analysis of Bayesian models
   - bokeh                       # Interactive Data Visualization 
