@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 if [ "$CONDA_DEFAULT_ENV" != "base" ]; then
 	echo "Script must be executed from base environment!"
