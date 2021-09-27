@@ -24,15 +24,15 @@ dependencies:
   - torchinfo                   # View model summaries in PyTorch!
   - pytorch-lightning           # The lightweight PyTorch wrapper for high-performance AI research
   - pytorch-forecasting         # Time series forecasting with PyTorch
-# keras                         
-  - keras                       # Deep learning framework
-  - keras-preprocessing         # Dataset preprocessing utilities
-  - keras-applications          # Deep learning models that are made available alongside pre-trained weights.
-# tensorflow EcoSystem          
-  - tensorflow-probability      # Library for probabilistic reasoning and statistical analysis in TensorFlow.
-  - tensorflow-estimator        # High-level TensorFlow API that greatly simplifies machine learning programming.
-  - tensorflow-datasets         # Public datasets as tf.data.Datasets.
-  - tensorflow-metadata         # Standard representations for metadata that are useful when training machine learning models.
+# # keras                         
+#   - keras                       # Deep learning framework
+#   - keras-preprocessing         # Dataset preprocessing utilities
+#   - keras-applications          # Deep learning models that are made available alongside pre-trained weights.
+# # tensorflow EcoSystem          
+#   - tensorflow-probability      # Library for probabilistic reasoning and statistical analysis in TensorFlow.
+#   - tensorflow-estimator        # High-level TensorFlow API that greatly simplifies machine learning programming.
+#   - tensorflow-datasets         # Public datasets as tf.data.Datasets.
+#   - tensorflow-metadata         # Standard representations for metadata that are useful when training machine learning models.
 # Scipy Stack                   
   - numpy>=1.21                 # The fundamental package for scientific computing with Python
   - scipy                       # Open-source software for mathematics, science, and engineering
@@ -42,6 +42,7 @@ dependencies:
   - sympy                       # A computer algebra system written in pure Python
   - nose2                       # Nose is nicer testing for python
  # Jupyter & Extensions         
+  - jupyter-packaging
   - jupyterlab                  # JupyterLab computational environment
   - ipympl                      # Matplotlib Jupyter Integration
   - ipywidgets                  # Interactive HTML Widgets
@@ -77,7 +78,6 @@ dependencies:
   - dm-tree
   - dm-env
   - dm-haiku
-  - dm-sonnet
   - numpyro
   - pip: [ dm-pix, dm-control, objax, jmp, rlax ]
 ##
@@ -122,6 +122,7 @@ dependencies:
   - black                       # The Uncompromising Code Formatter
   - pip: [ "black[jupyter]" ]   # Black extension for .ipynb files
   - isort                       # A Python utility / library to sort imports. 
+  - pep8                        # Python style guide checker
   - mccabe                      # McCabe complexity checker for Python
   - pyflakes                    # A simple program which checks Python source files for errors 
   - pylint                      # It's not just a linter that annoys you!
@@ -171,3 +172,7 @@ dependencies:
   - pytest                      # The pytest framework makes it easy to write small tests
   - pytest-cov                  # Coverage plugin for pytest
   - pytest-rerunfailures        # PyTest plugin to re-run tests to eliminate flaky failures
+## Utilities
+  - termcolor                   # ANSII Color formatting for output in terminal.
+  # - pip: [yachalk]              # 🖍️ Terminal string styling done right
+  - yarn                        # Yarn is a package manager that doubles down as project manager. 

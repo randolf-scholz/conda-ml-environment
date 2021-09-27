@@ -252,4 +252,4 @@ fi
 
 print_title "ALL DONE"
 print_infos "Always use the environment specific conda interpreter!"
-print_infos "Use `conda-develop .` instead of `pip install -e .`!"
+print_infos 'Use `conda-develop .` instead of `pip install -e .`!'
