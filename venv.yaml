@@ -68,6 +68,8 @@ dependencies:
   - h5py                        # The h5py package is a Pythonic interface to the HDF5 binary data format. 
   - pillow                      # The friendly PIL fork (Python Imaging Library) 
   - pydantic                    # Data validation and settings management using Python type hinting.
+  - pyarrow                     # Python library for Apache Arrow
+  - fastparquet                 # fastparquet is a python implementation of the parquet format
 ## Machine Learning
 ### Jax EcoSystem & DeepMind-Packages
   - jax                         # Composable transformations of Python+NumPy programs
@@ -85,6 +87,9 @@ dependencies:
   # - gym                       # A toolkit for developing and comparing reinforcement learning
   - openml                      # Open Machine Learning
 ## Numerics                     
+  - modin                       # Scale your pandas workflows by changing one line of code
+  - modin-dask                  #
+  - modin-ray                   #
   - opt_einsum                  # Optimizing einsum functions in NumPy, Tensorflow, Dask
   - numba                       # NumPy aware dynamic Python compiler using LLVM 
 ## Plotting                     
@@ -122,11 +127,10 @@ dependencies:
   - black                       # The Uncompromising Code Formatter
   - pip: [ "black[jupyter]" ]   # Black extension for .ipynb files
   - isort                       # A Python utility / library to sort imports. 
-  - pep8                        # Python style guide checker
   - mccabe                      # McCabe complexity checker for Python
   - pyflakes                    # A simple program which checks Python source files for errors 
   - pylint                      # It's not just a linter that annoys you!
-  - pycodestyle                 # Simple Python style checker in one Python file
+  - pycodestyle                 # Simple Python style checker in one Python file (formerly pep8)
   - pydocstyle                  # Docstring style checker
 ## Linting - Flake8 & Extensions
   - flake8                      # Wrapper for PyFlakes and pycodestyle
@@ -146,6 +150,16 @@ dependencies:
   - types-PyYAML                # Typing stubs for PyYAML
   - types-toml                  # Typing stubs for toml
   - types-setuptools            # Typing stubs for setuptools
+  - types-backports             # Typing stubs for backports
+  - types-chardet               # Typing stubs for chardet
+  - types-filelock              # Typing stubs for filelock
+  - types-protobuf              # Typing stubs for protobuf
+  - types-pyOpenSSL             # Typing stubs for pyOpenSSL
+  - types-python-dateutil       # Typing stubs for python-dateutil
+  - types-redis                 # Typing stubs for redis
+  - types-requests              # Typing stubs for requests
+  - types-six                   # Typing stubs for six
+  - types-tabulate              # Typing stubs for tabulate
 ## Documentation - Sphinx & Extensions    
   - sphinx                      # Main repository for the Sphinx documentation builder
   - sphinx-math-dollar          # Sphinx extension to let you write LaTeX math using $$
@@ -176,3 +190,7 @@ dependencies:
   - termcolor                   # ANSII Color formatting for output in terminal.
   # - pip: [yachalk]              # 🖍️ Terminal string styling done right
   - yarn                        # Yarn is a package manager that doubles down as project manager. 
+## npm packages
+  - npm:
+    - pyright
+    - pylance
