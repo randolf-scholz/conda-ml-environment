@@ -189,8 +189,4 @@ dependencies:
 ## Utilities
   - termcolor                   # ANSII Color formatting for output in terminal.
   # - pip: [yachalk]              # 🖍️ Terminal string styling done right
-  - yarn                        # Yarn is a package manager that doubles down as project manager. 
-## npm packages
-  - npm:
-    - pyright
-    - pylance
+  - yarn                        # Yarn is a package manager that doubles down as project manager.
