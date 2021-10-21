@@ -155,6 +155,7 @@ else
 	ENVNAME="$remaining_args"
 fi
 
+PINNED=$(python3 split.py "$(cat pinned)")
 
 ########
 # MAIN #
@@ -166,7 +167,7 @@ print_infos "Running in non-interactive mode : $NON_INTERACTIVE"
 print_infos "Using environment file          : $FILE"
 print_infos "Installing packages via         : $CONDA"
 sleep 3
-conda create $ARGS --name $ENVNAME -c conda-forge mamba
+conda create $ARGS --name $ENVNAME -c conda-forge mamba $PINNED
 
 print_title "Activing environment"
 source $CONDA_PREFIX/etc/profile.d/conda.sh
@@ -193,7 +194,6 @@ print_title "Created Environment"
 conda config --show pkgs_dirs >> $CONDA_PREFIX/.condarc # fix wrong pkg cache in mamba
 # add pinned packages
 cp pinned $CONDA_PREFIX/conda-meta/pinned
-PINNED=$(python3 split.py "$(cat pinned)")
 print_infos "Added Pinned Packages in $CONDA_PREFIX/conda-meta/pinned"
 echo $(cat $CONDA_PREFIX/conda-meta/pinned)
 sleep 1

@@ -1,5 +1,5 @@
 numpy>=1.21
-cudatoolkit==11.1.*
+cudatoolkit==11.3.*
 sphinx_rtd_theme>=1.0
 python>=3.9
-pytorch>=1.9
+pytorch>=1.10
