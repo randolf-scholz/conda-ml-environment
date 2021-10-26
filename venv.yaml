@@ -3,7 +3,7 @@ channels:
   - pytorch
   - conda-forge
 dependencies:
-  - python>=3.9                 # The Python Programming language
+  - python                      # The Python Programming language
   - pip                         # The Python package installer 
  # Packaging utilities          
   - conda-build                 # commands and tools to use conda to build your own packages.
@@ -11,12 +11,13 @@ dependencies:
   - conda-tree                  # Conda dependency tree helper
   - pipdeptree                  # display dependency tree of the installed Python packages
   - johnnydep                   # Display dependency tree of Python distribution
+  - pip: [pydeps]
 # CUDA                          
   - libblas=*=*mkl              # Metapackage to select the BLAS variant
   - blas=*=mkl                  # Metapackage to select the BLAS variant
-  - cudatoolkit=11.1.*          # GPU acceleration
+  - cudatoolkit                 # GPU acceleration
 # Pytorch                       
-  - pytorch>=1.9                # Tensors and Dynamic neural networks in Python with strong GPU acceleration
+  - pytorch                     # Tensors and Dynamic neural networks in Python with strong GPU acceleration
   - torchvision                 # Datasets, Transforms and Models specific to Computer Vision 
   - torchaudio                  # Data manipulation and transformation for audio signal processing
   - torchtext                   # Data loaders and abstractions for text and NLP

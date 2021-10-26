@@ -167,7 +167,7 @@ print_infos "Running in non-interactive mode : $NON_INTERACTIVE"
 print_infos "Using environment file          : $FILE"
 print_infos "Installing packages via         : $CONDA"
 sleep 3
-conda create $ARGS --name $ENVNAME -c conda-forge mamba $PINNED
+conda create $ARGS --name $ENVNAME -c conda-forge mamba
 
 print_title "Activing environment"
 source $CONDA_PREFIX/etc/profile.d/conda.sh
