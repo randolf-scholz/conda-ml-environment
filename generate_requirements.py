@@ -9,16 +9,16 @@ Contains things like
 
 from __future__ import annotations
 
-import yaml
 import importlib
 import logging
+import multiprocessing as mp
+import os
 import subprocess
 import sys
-import os
 from pathlib import Path
-from typing import Final, Optional, Any, Iterable
-import multiprocessing as mp
+from typing import Any, Final, Iterable, Optional
 
+import yaml
 
 logger = logging.getLogger(__name__)
 __all__: Final[list[str]] = [
@@ -32,19 +32,19 @@ __all__: Final[list[str]] = [
 
 def info_message(s: str) -> str:
     """Bold Red"""
-    GREEN = '\033[92m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
+    GREEN = "\033[92m"
+    ENDC = "\033[0m"
+    BOLD = "\033[1m"
+    UNDERLINE = "\033[4m"
     return BOLD + UNDERLINE + GREEN + s + ENDC
 
 
 def error_message(s: str) -> str:
     """Bold Red"""
-    RED = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
+    RED = "\033[91m"
+    ENDC = "\033[0m"
+    BOLD = "\033[1m"
+    UNDERLINE = "\033[4m"
     return BOLD + UNDERLINE + RED + s + ENDC
 
 
@@ -149,7 +149,7 @@ def install_package(
         Options to pass to the isntaller
     """
     package_available = importlib.util.find_spec(package)
-    install_call = (installer, "install", package + "=={version}"*bool(version))
+    install_call = (installer, "install", package + "=={version}" * bool(version))
     if not package_available:
         if non_interactive or query_bool(
             f"Package '{package}' not found. Do you want to install it?"
@@ -157,7 +157,9 @@ def install_package(
             try:
                 subprocess.run(install_call + options, check=True)
             except subprocess.CalledProcessError as E:
-                print(error_message(f"Package {package}=={version} failed with error {E}"))
+                print(
+                    error_message(f"Package {package}=={version} failed with error {E}")
+                )
                 sys.exit(1)
     else:
         logger.info("Package '%s' already installed.", package)
@@ -185,7 +187,10 @@ def get_requirements(package: str, version: Optional[str] = None) -> dict[str, s
                 f"{package}" + f"=={version}" * bool(version),
                 r"--output-format",
                 r"pinned",
-            ), text=True, encoding="utf8", stderr=subprocess.DEVNULL
+            ),
+            text=True,
+            encoding="utf8",
+            stderr=subprocess.DEVNULL,
         )
     except subprocess.CalledProcessError as E:
         print(error_message(f"Package {package}=={version} failed with error {E}"))
@@ -220,7 +225,9 @@ def write_requirements(
     print(info_message(f"Created {fname}"))
 
 
-def flatten_dict(d: dict[Any, Iterable[Any]], recursive: bool = True) -> list[tuple[Any, ...]]:
+def flatten_dict(
+    d: dict[Any, Iterable[Any]], recursive: bool = True
+) -> list[tuple[Any, ...]]:
     r"""Flatten a dictionary containing iterables to a list of tuples.
 
     Parameters

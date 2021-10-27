@@ -1,11 +1,16 @@
 import logging
+
 from termcolor import colored
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-logging.info("")   # BUG: if this is missing then the first log message is missing?
-success = lambda s: logger.info(colored(s + "  \N{HEAVY CHECK MARK}", "green", attrs=["bold"]))
-failure = lambda s: logger.info(colored(s + "  \N{HEAVY BALLOT X}", "red", attrs=["bold"]))
+logging.info("")  # BUG: if this is missing then the first log message is missing?
+success = lambda s: logger.info(
+    colored(s + "  \N{HEAVY CHECK MARK}", "green", attrs=["bold"])
+)
+failure = lambda s: logger.info(
+    colored(s + "  \N{HEAVY BALLOT X}", "red", attrs=["bold"])
+)
 
 
 def test_jax_cuda():
@@ -16,7 +21,7 @@ def test_jax_cuda():
     else:
         success("JAX+CPU")
     try:
-        assert any(['gpu' in str(device) for device in jax.devices()])
+        assert any(["gpu" in str(device) for device in jax.devices()])
     except:
         failure("JAX+CUDA")
     else:
@@ -46,7 +51,7 @@ def test_tf_gpu():
     else:
         success("TF+CPU")
     try:
-        assert len(tf.config.list_physical_devices('GPU')) >= 1
+        assert len(tf.config.list_physical_devices("GPU")) >= 1
     except:
         failure("TF+CUDA")
     else:
