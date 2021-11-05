@@ -5,6 +5,7 @@ channels:
 dependencies:
   - python                      # The Python Programming language
   - pip                         # The Python package installer 
+  - nodejs
  # Packaging utilities          
   - conda-build                 # commands and tools to use conda to build your own packages.
   - mamba                       # The Fast Cross-Platform Package Manager
@@ -48,7 +49,27 @@ dependencies:
   - ipympl                      # Matplotlib Jupyter Integration
   - ipywidgets                  # Interactive HTML Widgets
   - voila                       # Rendering of live Jupyter notebooks with interactive widgets
+  - jupyter-resource-usage      # Jupyter Notebook Extension for monitoring your own Resource Usage
+  - jupyterlab-drawio           # A JupyterLab extension for embedding drawio / mxgraph.
+  # - jupyterlab-nvdashboard      # A JupyterLab extension for displaying GPU usage dashboards
+  # - jupyterlab-pullrequests     # A JupyterLab extension for reviewing pull requests.
+  - jupyterlab-spellchecker     # A JupyterLab extension highlighting misspelled words in markdown cells within notebooks and in the text files.
+  - jupyterlab-variableinspector # Jupyterlab extension that shows currently used variables and their values.
+  - jupyterlab_code_formatter   # Jupyterlab plugin to support using various code formatter
   - jupyterlab_templates        # Notebook Templates
+  - jupytext                    # Jupyter Notebooks as Markdown Documents, Julia, Python or R scripts
+  - pip: [jupyterlab-spreadsheet-editor]  # JupyterLab spreadsheet editor enables interactive editing of comma/tab separated value spreadsheets.
+## Jupyter Language server
+  # - jupyterlab-lsp              # Language Server Protocol integration for Jupyter(Lab)
+  # - jupyter-lsp-r
+  # - jupyter-lsp-python
+  # - jedi-language-server        # A Language Server for the latest version(s) of Jedi.
+  # - r-languageserver            # An implementation of the Language Server Protocol for R
+  # - python-lsp-server           # A Python 3.6+ implementation of the Language Server Protocol.
+## LaTeX stack
+  - tectonic                    # a cross-platform LaTeX processing tool
+  - texlab                      # a Language Server for .tex files that supports completion and reference navigation
+  - chktex                      # a .tex style checker
 ## NumFocus Projects            
   - arviZ                       # Exploratory analysis of Bayesian models
   - bokeh                       # Interactive Data Visualization 
