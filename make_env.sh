@@ -226,10 +226,10 @@ if !(bool_promt "Install CUDA-compatible MxNet?" $CUDA_MX); then
 	pip install --cache-dir $PIP_CACHE_DIR --upgrade mxnet-cu110==2.0.0a0
 fi
 
-print_alert "Note: Current TensorFlow 2.6 not compatible with numpy 1.21"
+# print_alert "Note: Current TensorFlow 2.6 not compatible with numpy 1.21"
 if !(bool_promt "Install CUDA-compatible TensorFlow?" $CUDA_TF); then
 	# $CONDA install $ARGS --file "requirements/requirements-conda-tensorflow==2.6.0.txt"
-	pip install --cache-dir $PIP_CACHE_DIR --upgrade tensorflow tensorflow-gpu
+	pip install --cache-dir $PIP_CACHE_DIR --upgrade tensorflow
 	pip install --cache-dir $PIP_CACHE_DIR --upgrade tensorflow-datasets tensorflow-probability \
 	tensorflow-estimator tensorflow-metadata 
 fi
