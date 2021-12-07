@@ -250,6 +250,12 @@ if !(bool_promt "Perform post-install CUDA test?"); then
 	python test/test_cuda.py
 fi
 
+print_infos "Installing JupyterLab-Language Servers"
+
+# npm install --save-dev bash-language-server dockerfile-language-server-nodejs javascript-typescript-langserver pyright sql-language-server typescript-language-server unified-language-server vscode-css-languageserver-bin vscode-html-languageserver-bin vscode-json-languageserver-bin yaml-language-server
+
 print_title "ALL DONE"
 print_infos "Always use the environment specific conda interpreter!"
 print_infos 'Use `conda-develop .` instead of `pip install -e .`!'
+
+
