@@ -181,13 +181,15 @@ fi
 
 print_title "setting up channels"
 conda config --env --add channels conda-forge
+conda config --env --add channels defaults
 conda config --env --add channels pytorch
 conda config --env --add channels nvidia
-conda config --env --remove channels defaults
+# conda config --env --remove channels defaults
 conda config --env --show channels
-conda config --env --set channel_priority strict
+conda config --set channel_priority false
+# conda config --env --set channel_priority strict
 conda config --env --show channel_priority
-conda config --env --set pip_interop_enabled True
+# conda config --env --set pip_interop_enabled True
 
 
 print_title "Created Environment"
@@ -217,8 +219,8 @@ if !(bool_promt "Install CUDA-compatible JAX?" $CUDA_JAX); then
 	# pip install --cache-dir $PIP_CACHE_DIR --upgrade "jax[cuda111]" \
 	# 	--force-reinstall --no-deps -f https://storage.googleapis.com/jax-releases/jax_releases.html
 	# Install any missing dependencies
-	pip install --cache-dir $PIP_CACHE_DIR --upgrade "jax[cuda111]"\
-		-f https://storage.googleapis.com/jax-releases/jax_releases.html
+	pip install --cache-dir $PIP_CACHE_DIR --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_releases.html
+	pip install --cache-dir $PIP_CACHE_DIR --upgrade -r jax_ecosystem.txt
 fi
 
 if !(bool_promt "Install CUDA-compatible MxNet?" $CUDA_MX); then
@@ -228,10 +230,8 @@ fi
 
 # print_alert "Note: Current TensorFlow 2.6 not compatible with numpy 1.21"
 if !(bool_promt "Install CUDA-compatible TensorFlow?" $CUDA_TF); then
-	# $CONDA install $ARGS --file "requirements/requirements-conda-tensorflow==2.6.0.txt"
 	pip install --cache-dir $PIP_CACHE_DIR --upgrade tensorflow
-	pip install --cache-dir $PIP_CACHE_DIR --upgrade tensorflow-datasets tensorflow-probability \
-	tensorflow-estimator tensorflow-metadata 
+	pip install --cache-dir $PIP_CACHE_DIR --upgrade tensorflow tensorflow-datasets tensorflow-estimator tensorflow-metadata 
 fi
 
 if !(bool_promt "Perform post-install update-check?"); then
