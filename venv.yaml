@@ -110,10 +110,11 @@ dependencies:
   # - gym                       # A toolkit for developing and comparing reinforcement learning
   - openml                      # Open Machine Learning
 ## Numerics                     
-  # - modin                       # Scale your pandas workflows by changing one line of code
-  # - modin-dask                  #
-  # - modin-ray                   #
-                                # Optimizing einsum functions in NumPy, Tensorflow, Dask
+  # - modin                     # Scale your pandas workflows by changing one line of code
+  # - modin-dask                #
+  # - modin-ray                 #
+  # opt_einsum                  # Optimizing einsum functions in NumPy, Tensorflow, Dask
+  - einops                      # Einops: efficient n-dimensional array operations for Python
   - numba                       # NumPy aware dynamic Python compiler using LLVM 
 ## Plotting                     
   - vispy                       # Interactive scientific visualization in Python
