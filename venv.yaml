@@ -71,7 +71,7 @@ dependencies:
 ## LaTeX stack
   - tectonic                    # a cross-platform LaTeX processing tool
   - texlab                      # a Language Server for .tex files that supports completion and reference navigation
-  - chktex                      # a .tex style checker
+  # - chktex                      # a .tex style checker
 ## NumFocus Projects            
   - arviZ                       # Exploratory analysis of Bayesian models
   - bokeh                       # Interactive Data Visualization 
@@ -186,6 +186,10 @@ dependencies:
   - types-requests              # Typing stubs for requests
   - types-six                   # Typing stubs for six
   - types-tabulate              # Typing stubs for tabulate
+## Type checking - other
+  - ninja                       # Ninja is a small build system for Python.     
+  - pytype                      # A type checker for Python.
+  - pyright                     # Static type checker for Python
 ## Documentation - Sphinx & Extensions    
   - sphinx                      # Main repository for the Sphinx documentation builder
   - sphinx-math-dollar          # Sphinx extension to let you write LaTeX math using $$
@@ -229,4 +233,6 @@ dependencies:
     - "modin[dask]"
     - opt_einsum
     - jupyterlab-spreadsheet-editor 
-    - pydeps                    # Python Module Dependency graphs 
+    - pydeps                    # Python Module Dependency graphs
+    - pyre-check                # Pyre is a performant type checker for Python compliant with PEP 484.
+    - slotscheck                # Ensure your __slots__ are working properly
