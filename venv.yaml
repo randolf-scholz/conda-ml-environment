@@ -110,9 +110,10 @@ dependencies:
   # - gym                       # A toolkit for developing and comparing reinforcement learning
   - openml                      # Open Machine Learning
 ## Numerics                     
-  # - modin                     # Scale your pandas workflows by changing one line of code
-  # - modin-dask                #
-  # - modin-ray                 #
+  - modin                     # Scale your pandas workflows by changing one line of code
+  - modin-core                #
+  - modin-dask                #
+  - modin-ray                 #
   # opt_einsum                  # Optimizing einsum functions in NumPy, Tensorflow, Dask
   - einops                      # Einops: efficient n-dimensional array operations for Python
   - numba                       # NumPy aware dynamic Python compiler using LLVM 
@@ -186,6 +187,7 @@ dependencies:
   - types-requests              # Typing stubs for requests
   - types-six                   # Typing stubs for six
   - types-tabulate              # Typing stubs for tabulate
+  - pandas-stubs                # Typing stubs for pandas
 ## Type checking - other
   - ninja                       # Ninja is a small build system for Python.     
   - pytype                      # A type checker for Python.
