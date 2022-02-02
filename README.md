@@ -5,7 +5,7 @@ A general purpose python environment that should run all of our code, together w
 Recommended usage:
 
 ```bash
-./make_env.sh venv -y -m --cuda-jax --cuda-mx
+./make_env.sh <environment-name> -y -m --cuda-all
 ```
 
 This will create a conda environment `venv` with the packages specifies in the `venv.yaml` file.
@@ -19,4 +19,4 @@ way faster dependency resolving.
 - `-h --help` : print this help
 - `-m --mamba` : use mamba for installing packages (faster&better dependency solving)
 - `-y --yes` : passes -y flag to all options (default=off)
-- `--cuda-*` : install various cuda versions.
+- `--cuda-*` : install various cuda supported libraries.
