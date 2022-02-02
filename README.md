@@ -1,6 +1,6 @@
-# Python-Venv package
+# conda-ml-environment
 
-A general purpose python environment that should run all of our code, together with an installation script.
+A bash script that installs a python environment catered towards machine-learning via `conda` and `pip` .
 
 Recommended usage:
 
