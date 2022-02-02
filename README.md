@@ -29,4 +29,4 @@ way faster dependency resolving.
   - `cuda-jax` : install google jax with cuda support
   - `cuda-mx` : install mxnet with cuda support
   - `cuda-tf` : install tensorflow with cuda support
-  - `cuda-all` : install tensorflow with cuda support
+  - `cuda-all` : install all of the above
