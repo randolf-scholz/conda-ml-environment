@@ -5,6 +5,12 @@ A general purpose python environment that should run all of our code, together w
 Recommended usage:
 
 ```bash
+./make_env.sh <environment-name> --cuda-all
+```
+
+For non-interactive usage, with mamba for faster dependecy resolving add flags `-y` and `-m`
+
+```bash
 ./make_env.sh <environment-name> -y -m --cuda-all
 ```
 
@@ -20,3 +26,7 @@ way faster dependency resolving.
 - `-m --mamba` : use mamba for installing packages (faster&better dependency solving)
 - `-y --yes` : passes -y flag to all options (default=off)
 - `--cuda-*` : install various cuda supported libraries.
+  - `cuda-jax` : install google jax with cuda support
+  - `cuda-mx` : install mxnet with cuda support
+  - `cuda-tf` : install tensorflow with cuda support
+  - `cuda-all` : install tensorflow with cuda support
